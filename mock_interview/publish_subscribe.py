@@ -2,6 +2,7 @@
     Question: Write a class contains three functions that will register 
     the callback with its id, unregister specific callback from a signal id, 
     and runs all the callback associated with specific signal id. 
+   
     Hint: Think about how to store(using data structure) the signal id and callback
 """
 
@@ -55,23 +56,17 @@ def b():
 
 def c():
     print("It is c!")
+
+
 sr = SignalRegister()
 sr.register(2, a)
 sr.register(2, b)
 sr.register(3, c)
+print(f"Registered signal 2 and 3")
 sr.signal(2) 
-"""
-    Output: 
-    It is b!
-    It is a!
-"""
 sr.signal(3)
-"""
-    Output: 
-    It is b!
-    It is a!
-    It is c!
-"""
+
 sr.unregister(2, a)
-print("Now signal id 2 has: ")
+print("After unregister callback: ")
 sr.signal(2)
+sr.signal(3)
