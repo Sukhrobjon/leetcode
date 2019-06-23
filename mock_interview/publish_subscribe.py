@@ -1,7 +1,7 @@
 """
-    Question: Write a class contains three function will register the callback with its id, 
-    unregister specific callback from a signal id, and runs all the callback associated with
-    specific signal id. 
+    Question: Write a class contains three functions that will register 
+    the callback with its id, unregister specific callback from a signal id, 
+    and runs all the callback associated with specific signal id. 
     Hint: Think about how to store(using data structure) the signal id and callback
 """
 
