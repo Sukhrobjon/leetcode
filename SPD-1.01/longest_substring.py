@@ -3,6 +3,7 @@
     in a given string of n letters.
 """
 
+# original version
 def findUnique(s):
     curr = ""
     result = ""
@@ -14,3 +15,11 @@ def findUnique(s):
                 result = curr
         else:
             index += 1
+
+# refactored 
+def find_unique(s):
+    curr = ""
+    result = ""
+    sd = {k:v for v, k in enumerate(s.split(''))}
+    for key in sorted(sd.keys()):
+        pass
