@@ -30,4 +30,4 @@ class Solution(object):
         while(curr):
             count += 1
             curr = curr.next
-        
+        return count
