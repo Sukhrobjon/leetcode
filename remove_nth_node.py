@@ -5,7 +5,7 @@ class ListNode(object):
         self.next = None
 class Solution(object):
 
-    def removeNthFromEnd(self, head, n):
+    def remove_nth_from_end(self, head, n):
         """
         :type head: ListNode
         :type n: int
@@ -18,13 +18,16 @@ class Solution(object):
         if new_n == 0:
             head = head.next
         else:
+            # stop right before the target to be deleted
             for _ in range(new_n - 1):
                curr = curr.next
             
+            # skip that nth node
             curr.next = curr.next.next
 
     
     def length(self, head):
+        """Return the length of the linked list"""
         curr = head
         count = 0
         while(curr):
