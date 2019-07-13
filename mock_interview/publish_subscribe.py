@@ -56,17 +56,22 @@ def b():
 
 def c():
     print("It is c!")
+def d():
+    print("It is d!")
 
 
 sr = SignalRegister()
 sr.register(2, a)
 sr.register(2, b)
 sr.register(3, c)
+sr.register(2, d)
+sr.register(3, d)
 print(f"Registered signal 2 and 3")
 sr.signal(2) 
-sr.signal(3)
+# sr.signal(3)
 
-sr.unregister(2, a)
-print("After unregister callback: ")
-sr.signal(2)
-sr.signal(3)
+
+# sr.unregister(2, a)
+# print("After unregister callback: ")
+# sr.signal(2)
+# sr.signal(3)
