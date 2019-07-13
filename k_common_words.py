@@ -31,6 +31,6 @@ def histogram(list_words):
     return hist
 
 
-words = "hi hello bye hi  hi say bye"
-k = 3
+words = "hi hello bye hi  hi say bye sukhrob sukhrob sukhrob"
+k = 4
 find_three_common(words, k)
