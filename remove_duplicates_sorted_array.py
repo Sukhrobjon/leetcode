@@ -13,6 +13,6 @@ class Solution(object):
 
 
 nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
-
+empt = []
 obj = Solution()
-print(obj.remove_duplicates(nums))
+print(obj.remove_duplicates(empt))
