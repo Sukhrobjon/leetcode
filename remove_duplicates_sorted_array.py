@@ -9,7 +9,7 @@ class Solution(object):
                 # print(f"num[i] {nums[i]}, [i+1] {nums[i+1]}")
                 del nums[i-1]
 
-        return nums
+        return
 
 
 nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
