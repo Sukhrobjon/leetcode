@@ -22,7 +22,7 @@ class Solution(object):
 
         return nums
 
-       
+
 nums = [0, 0, 1]
 # nums = [0, 1, 0, 3, 12]
 obj = Solution()

@@ -10,8 +10,9 @@ You may assume all the characters consist of printable ascii characters.
 
 
 class Solution(object):
-    def reverseString(self, s):
+    def reverse_string(self, s):
         """
+        Reserse the string
         :type s: List[str]
         :rtype: None Do not return anything, modify s in-place instead.
         """
@@ -24,6 +25,6 @@ class Solution(object):
         return s
 
 obj = Solution()
-word = ["H", "a", "n", "n", "a", "h"]
-result = obj.reverseString(word)
+word = ["H", "a", "n", "n", "a"]
+result = obj.reverse_string(word)
 print(result)
