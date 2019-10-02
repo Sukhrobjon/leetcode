@@ -31,5 +31,5 @@ class Solution:
         return longest
 
 
-# obj = Solution()
-# print(obj.lengthOfLongestSubstring('abcabcbb'))
+obj = Solution()
+print(obj.lengthOfLongestSubstring('abcabcbb'))

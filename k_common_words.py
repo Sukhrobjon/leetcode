@@ -1,4 +1,4 @@
-def find_three_common(word_str, k):
+def find_k_common(word_str, k):
     """
         Takes a long string find a 3 most common words and return them
     """
@@ -33,4 +33,4 @@ def histogram(list_words):
 
 words = "hi hello bye hi hi say bye sukhrob sukhrob sukhrob"
 k = 4
-find_three_common(words, k)
+find_k_common(words, k)
