@@ -13,7 +13,7 @@ class Solution(object):
         return list(map(int, str(plus_1)))
 
 
-digits = [9,9,9]
+digits = [9, 9, 9]
 obj = Solution()
 result = obj.plus_one(digits)
 print(result)
