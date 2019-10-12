@@ -58,38 +58,27 @@ class Solution(object):
     def search_insertion_v3(self, nums, target):
         """
         Binary search: 24ms solution from leetcode
+        NOTE:You can assume there is no duplicates
         """
         if not nums:
             return 0
         left = 0
         right = len(nums) - 1
 
-
-        # at the beginning
-        if target < nums[left]:
-            return left
-        # or at the end of the list
-        if target > nums[right]:
-            return right + 1
-
-        # then we know the target should be inserted somewhere in the middle
         while left <= right:
-            middle = (left + right) // 2
-            if target == nums[middle]:
-                return middle
-
-            if target > nums[middle] and nums[middle + 1] > target:
-                return middle + 1
+            mid = (left + right) // 2
+            if target == nums[mid]:
+                return mid
+            if target < nums[mid]:
+                right = mid - 1
             else:
-                if target < nums[middle]:
-                    right = middle
-                else:
-                    left = middle + 1
+                left = mid + 1
+        print(f"mid: {mid}, left: {left}, right: {right}")
+        return left
 
 
-
-nums = [3, 6, 7, 8, 10]
-target = 5
+nums = [1, 3, 5, 7]
+target = 8
 obj = Solution()
 result = obj.search_insertion_v3(nums, target)
 print(f"result: {result}, target: {target}")
