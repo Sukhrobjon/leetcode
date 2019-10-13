@@ -49,8 +49,8 @@ class Solution(object):
             2 and 7 is the answer bc 2 + 7 = 9
             return [2, 7]
 
-            Running Time: O(n) bc it runs number of items in the list
-            Space Complexity: O(n) bc set is used to store the number as we iterate the list
+            Running Time: O(n) bc it runs itertate through the list once
+            Space Complexity: O(n) bc set is used to store the number
         """
         pair_set = set()
         for i in range(len(nums)):
@@ -61,8 +61,9 @@ class Solution(object):
                 pair_set.add(nums[i])
 
         return []
-obj = Solution()
+
 
 nums = [2, 3, 3, 15]
-target = 6
+target = 17
+obj = Solution()
 print(obj.two_sum_with_num(nums, target))
