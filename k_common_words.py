@@ -3,7 +3,7 @@ def find_k_common(word_str, k):
         Takes a long string find a 3 most common words and return them
     """
     word_list = word_str.split()
-    print(word_list[:4])
+    print(word_list[:k])
 
     hist = histogram(word_list)
     print(hist)
@@ -32,5 +32,5 @@ def histogram(list_words):
 
 
 words = "hi hello bye hi hi say bye sukhrob sukhrob sukhrob"
-k = 4
+k = 3
 find_k_common(words, k)

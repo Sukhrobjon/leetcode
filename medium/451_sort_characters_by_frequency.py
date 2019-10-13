@@ -25,7 +25,7 @@ class Solution(object):
         # return "".join(char[0]*char[1] for char in counter_sort)
 
 
-s = ""
+s = "tree"
 obj = Solution()
 result = obj.frequency_sort(s)
 print(result)
