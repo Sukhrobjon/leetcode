@@ -1,8 +1,5 @@
-# TODO: change the code so it returns first occurance
-
-
 class Solution(object):
-    def longest_palindrome(self, s):
+    def shortest_palindrome(self, s):
         """
         :type s: str
         :rtype: str
@@ -15,26 +12,32 @@ class Solution(object):
         start = 0
         end = 0
         curr_len = 0
-
+        longest = 0
         for i in range(len(s)):
             # this one is for odd length of palindorome
             len_1 = self.expand_from_middle(s, i, i)
             # this one is for even length of palindorome
             len_2 = self.expand_from_middle(s, i, i+1)
             # find the longer between above two
-            # new_len = max(len_1, len_2)
+            print(f"{len_1}, {len_2}")
             curr_len = max(len_1, len_2)
             print(f"curr_len: {curr_len}, end and start {end}, {start}")
             # check if current length is greater than previous valid one
-            if curr_len > end - start:
+            if curr_len > end - start and curr_len > longest:
                 # we need to redeclare the end and start of the substring
                 start = i - ((curr_len - 1) // 2)
                 end = i + (curr_len // 2)
                 print(f"curr: {s[start:end+1]}")
                 longest = len(s[start:end+1])
-                
-        # end + 1 because right side of slicing notation is exclusive
-        return s[start:end+1]
+
+        # if whole string is already palindrome
+        if end == len(s) - 1:
+            return s
+        # else we need to reverse the chars after last index of substring
+        # and add the reversed substring infront of the string
+        reverse_sub = s[end+1:][::-1]
+        # print((reverse_sub))
+        return reverse_sub + s
 
     def expand_from_middle(self, s, left, right):
         """
@@ -50,7 +53,7 @@ class Solution(object):
         # early check up
         if s is None or left > right:
             return 0
-        
+
         # otherwise
         while(left >= 0 and right < len(s) and s[left] == s[right]):
             # move the pointers
@@ -62,6 +65,7 @@ class Solution(object):
 
 
 obj = Solution()
-s = "aacecaaa"
-result = obj.longest_palindrome(s)
+# s = "aacecaaa"
+s = "abb"
+result = obj.shortest_palindrome(s)
 print(f"longest palindromic substring is: {result}")
