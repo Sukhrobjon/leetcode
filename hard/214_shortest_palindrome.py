@@ -31,11 +31,12 @@ class Solution(object):
                 longest = len(s[start:end+1])
 
         # if whole string is already palindrome
-        if end == len(s) - 1:
+        if end == len(s) - 1 and start == 0:
             return s
         # else we need to reverse the chars after last index of substring
         # and add the reversed substring infront of the string
         reverse_sub = s[end+1:][::-1]
+        print(f"after loop curr: {s[start:end+1]}")
         # print((reverse_sub))
         return reverse_sub + s
 
