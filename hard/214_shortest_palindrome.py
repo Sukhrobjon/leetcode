@@ -29,15 +29,26 @@ class Solution(object):
                 end = i + (curr_len // 2)
                 print(f"curr: {s[start:end+1]}")
                 longest = len(s[start:end+1])
-
+        print(f"the longest palindrome: {s[start:end+1]}")
         # if whole string is already palindrome
-        if end == len(s) - 1 and start == 0:
+        if (start == 0 and end == len(s) - 1):
             return s
-        # else we need to reverse the chars after last index of substring
+        # if palindrome is in the middle
+        elif (start > 0 and end < len(s) - 1):
+            # we need to reverse everthing from one before the start position
+            reverse_sub = s[start:][::-1]
+            print(f"reverse sub for middle palindrome: {reverse_sub}")
+            return reverse_sub + s
+        # else the longest palindrome is at the end
+        elif (start > 0 and end == len(s) - 1):
+            reverse_sub = s[start:][::-1]
+            print(f"reverse sub for middle palindrome: {reverse_sub}")
+            return reverse_sub + s
+
+        # otherwise we need to reverse the chars after last index of substring
         # and add the reversed substring infront of the string
         reverse_sub = s[end+1:][::-1]
-        print(f"after loop curr: {s[start:end+1]}")
-        # print((reverse_sub))
+        print((reverse_sub))
         return reverse_sub + s
 
     def expand_from_middle(self, s, left, right):
