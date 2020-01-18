@@ -4,31 +4,16 @@ class Solution(object):
         :type chars: List[str]
         :rtype: int
         """
-        from collections import Counter
-        counter = Counter(chars)
-        items = []
-        for k, v in counter.items():
-            items.append(k)
-            if v > 1:
-                items.append(v)
-        print(items)
         # naive solution
-        count = 1
+        count = 0
         com_str = []
-        for i in range(len(chars) - 1):
-            char = chars[i]
-            print(char)
-            if chars[i] == chars[i+1]:
-                count += 1
-            else:
-                # we see the first unmatch
-                com_str.append(char)
-                print(count)
-                if count > 1:
-                    com_str.append(count)
-                # reset the count for new char
-                count = 1
-        
+        for i in range(len(chars)+1):
+            count += 1
+            if (chars[i] != chars[i+1] or (i + 1 >= len(chars))):
+                com_str.append(chars[i])
+                com_str.append(count)
+                count = 0
+
         return com_str
 
 obj = Solution()
