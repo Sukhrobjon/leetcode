@@ -30,23 +30,20 @@ class Solution(object):
         """
         Use 2 pointers, since we dont know the length of the linked list
         """
-        
-        p1 = head
-        p2 = head
+        p1 = p2 = head
 
-        # first we need to move the p1 to k from the beginning of LL
         for _ in range(k):
-            if p1 is None:
-                return head
             p1 = p1.next
-        
-        # we want to stop the slow pointer one before the desired node
-        while p1.next is not None:
+
+        # if we need to delete head node, where k = len(ll)
+        if not p1:
+            return head.next
+
+        # 
+        while p1.next:
             p1 = p1.next
             p2 = p2.next
 
-        # replace the data of the node at that location with next node
-        p2.val = p2.next.val
         p2.next = p2.next.next
 
         return head
