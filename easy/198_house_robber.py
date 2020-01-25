@@ -4,11 +4,19 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        current_max = nums[0]
-        if len(nums) >= 2:
-            current_max = max(nums[0], nums[1])
 
-        for i in range(len(2, nums)):
+        curr_incl = nums[0]
+        exc = 0
 
-            current_house = nums[i]
-            window_min = i - 2
+        for i in range(1, len(nums)):
+            temp = curr_incl
+            curr_incl = max(curr_incl, nums[i] + exc)
+            exc = temp
+
+        return curr_incl
+
+
+nums = [2, 7, 9, 3, 1]
+obj = Solution()
+result = obj.rob(nums)
+print("Result:", result)
