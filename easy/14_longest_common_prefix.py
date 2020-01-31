@@ -36,7 +36,7 @@ class Solution(object):
 strs = ["x", "x"]
 # ["c","c"], ["", "b"]
 obj = Solution()
-print("prefix: ", obj.longestCommonPrefix([]))
+print("prefix->: ", obj.longestCommonPrefix(["a"]))
 print("two word: ", obj.common_prefix(strs[0], strs[1]))
 
 
