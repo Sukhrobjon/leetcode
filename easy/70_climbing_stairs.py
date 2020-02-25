@@ -7,6 +7,7 @@ can you climb to the top?
 Note: Given n will be a positive integer.
 '''
 
+
 class Solution(object):
     def climbStairs(self, n):
         """
