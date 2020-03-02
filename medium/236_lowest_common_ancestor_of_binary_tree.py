@@ -29,7 +29,7 @@ class Solution(object):
         # then we know that node is the lowest common ancestor
         if left and right:
             return root
-        # else even if we try to return not None value, if both are none,
-        # then node is none line would be triggered
+        # we try to return not None value, if both are none,
+        # then node is none line 18 would be triggered
         else:
             return left if left else right
