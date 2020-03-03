@@ -1,9 +1,9 @@
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 
 class Solution(object):
@@ -31,4 +31,19 @@ class Solution(object):
             if sum == node.val:
                 return True
 
-        return self.helper(node.left, sum-node.val) or self.helper(node.right, sum-node.val)
+        left = self.helper(node.left, sum-node.val)
+        right = self.helper(node.right, sum-node.val)
+
+        return left or right
+
+
+root = TreeNode(4)
+root.left = TreeNode(9)
+root.right = TreeNode(0)
+root.left.left = TreeNode(5)
+root.left.right = TreeNode(1)
+
+
+tree = Solution()
+result = tree.hasPathSum(root, 18)
+print(result)
