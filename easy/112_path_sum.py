@@ -14,7 +14,9 @@ class Solution(object):
         :rtype: bool
         """
 
-        
+        path = self.helper(root, sum)
+        print(path)
+        return True if path else False
 
     def helper(self, node, sum):
         # if path is None:
@@ -24,9 +26,9 @@ class Solution(object):
         if node is None:
             return False
         # we get to the leaf
-        if node.left is None and node.right is None and sum == node.val:
+        if node.left is None and node.right is None:
             # check if it is right path
-            return True
+            if sum == node.val:
+                return True
 
-        return self.helper(node.left, sum-node.val) or \
-            self.helper(node.right, sum-node.val)
+        return self.helper(node.left, sum-node.val) or self.helper(node.right, sum-node.val)
