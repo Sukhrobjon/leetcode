@@ -11,6 +11,7 @@ class Solution(object):
         self.set_zeroes_v1(matrix)
         print("Updated: ")
         self.display_matrix_formatted(matrix)
+    
     def set_zeroes_v1(self, matrix):
         """Zet the row and column to zero if zero is seen in that row or column"""
         # first we need to make the flag for each row and column
