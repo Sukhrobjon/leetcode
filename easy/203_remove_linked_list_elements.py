@@ -20,12 +20,8 @@ class Solution(object):
         while curr.next is not None:
             # count += 1
             if curr.next.val == val:
-                # print("found: ", curr.val)
-                # # check if the is tail
-                # if curr.next is None:
-                #     prev.next = None
-                #     finished = True
-                #     break
+        
+                # check if the is tail
 
                 # prev.next = curr.next
                 # curr.next = None

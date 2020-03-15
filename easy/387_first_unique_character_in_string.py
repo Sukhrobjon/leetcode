@@ -1,5 +1,7 @@
 def first_unique_char(text):
-    """
+    """ 
+        Given a string, find the first non-repeating character in it and
+        return it's index. If it doesn't exist, return -1.
     """
     # result = 0
     ind_dict = {}
