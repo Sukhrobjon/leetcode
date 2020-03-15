@@ -101,9 +101,9 @@ matrix = [
     [13, 14, 15, 16]
 ]
 # print(matrix[1][2])
-output = [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
-
+output = [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
 
 obj = Solution()
-result = obj.spiralOrder(matrix)
+result = obj.spiral_order(matrix)
 print(f"output -> {result}")
+print(output == result)
