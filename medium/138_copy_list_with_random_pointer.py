@@ -75,4 +75,41 @@ class Solution(object):
             
         return cloned_head
         
+    def copy_random_list(self, head):
+        """
+        Deep copies the linked list
+        """
 
+        if head is None:
+            return head
+        curr = head
+        while curr is not None:
+            # create a new node
+            new_node = Node(curr.val)
+            # point the new node to the curr.next
+            new_node.next = curr.next
+            # link the current node to the new node
+            curr.next = new_node
+            # move forward
+            curr = curr.next.next
+
+        curr = head
+        # now we can manimulate the random pointers
+        while curr is not None:
+            # check if curr random points to node or none
+            if curr.random is not None:
+                curr.next.random = curr.random.next
+            curr = curr.next.next
+
+        # now we restore the original list
+        curr = head
+        copy = head.next
+        while curr.next is not None:
+            # store the reference to curr.next node
+            temp = curr.next
+            # skip one node
+            curr.next = curr.next.next
+            # move the current node iterator by one forward
+            curr = temp
+
+        return copy
