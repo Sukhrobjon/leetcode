@@ -36,3 +36,4 @@ class Solution(object):
         curr.next = l1 if l1 is not None else l2
 
         return new_head.next
+        
