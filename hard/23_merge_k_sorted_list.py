@@ -1,3 +1,6 @@
+from queue import PriorityQueue
+
+
 # Definition for singly-linked list.
 class ListNode(object):
     def __init__(self, x):
@@ -6,10 +9,36 @@ class ListNode(object):
 
 
 class Solution(object):
-    def mergeKLists(self, lists):
+
+    def merge_k_list_with_queue(self, lists):
+        """
+            Put the current head into priority queue
+        """
+        new_head = curr = ListNode(0)
+
+        q = PriorityQueue(maxsize=len(lists))
+        for index, node in enumerate(lists):
+            if node:
+                q.put((node.val, index, node))
+
+        # dequeue the queue until its empty
+        while not q.empty():
+            _, index, node = q.get()
+            # link it to curr node
+            curr.next = node
+            # move the pointer one forward
+            curr = curr.next
+            # check if we need to put the next item of node needs to be added to queue
+            if node.next:
+                q.put((node.next.val, index, node.next))
+        return new_head.next
+
+        
+    def merge_k_linked_lists(self, lists):
         """
         :type lists: List[ListNode]
         :rtype: ListNode
+        NOTE: this fails for big list. e.g n = 10,000
         """
         # dummy node to store the new head
         new_head = curr = ListNode(0)
@@ -19,15 +48,17 @@ class Solution(object):
             min_index, last_head = self.get_min_index(lists)
             print(f"min_index: {min_index}, last_head: {last_head}")
             node = lists[min_index]
+            # move that node one forward
+            lists[min_index] = lists[min_index].next
             print(node.val)
             curr.next = node
             print(curr.val, curr.next.val)
-            node = node.next
+            # node = node.next
             print(node.val)
             curr = curr.next
             print(curr.val)
-            if last_head:
-                head = True
+            # if last_head:
+            #     head = True
         # if it there is only one linked list left in lists
         min_index, last_head = self.get_min_index(lists)
         node = lists[min_index]
@@ -79,16 +110,14 @@ b = ListNode(2)
 b.next = ListNode(3)
 b.next.next = ListNode(4)
 
-l_lists = [a, b]
+c = None
+l_lists = [[c], [a], [b]]
 print(len(l_lists))
 obj = Solution()
 result = obj.mergeKLists(l_lists)
-# while result:
-#     print(f"result node {result.val}")
-#     result = result.next
+while result:
+    print(f"result node {result.val}")
+    result = result.next
     
-print(f"result node {result.val}")
-print(f"result node {result.next.val}")
-print(f"result node {result.next.next.val}")
-print(f"result node {result.next.next.next.val}")
+
 
