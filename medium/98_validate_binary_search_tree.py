@@ -29,6 +29,33 @@ class Solution(object):
             return False
         return self.is_valid_bst(node.left, lower, node.val) and self.is_valid_bst(node.right, node.val, upper)
 
+    def validate_with_inorder(self, node):
+        """
+            validate the binary tree if it is binary search tree using in order
+            traversal property
+        """
+        # we use iterative traversal with stack here because, we can't access
+        # next element if we use recursion
+
+        stack = []
+        # initially we compare the smallest number in the tree, and each time
+        # we need to update it with the current smallest number in the tree 
+        left_adjecent = float('-inf')
+        
+        while stack or node:
+            # add the node until it has left child
+            if node is not None:
+                stack.append(node)
+                node = node.left
+            else:
+                # pop it
+                poped = stack.pop()
+                if poped.val <= left_adjecent:
+                    return False
+                left_adjecent = poped.val
+
+                node = node.right
+
 
 """
 SOLUTION:
