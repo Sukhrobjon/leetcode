@@ -1,3 +1,5 @@
+from collections import deque
+
 """
 # Definition for a Node.
 class Node:
@@ -11,7 +13,6 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Node') -> 'Node':
-
         if not root:
             return None
         return self.connect_right_pointers(root)
@@ -19,12 +20,14 @@ class Solution:
     def connect_right_pointers(self, root):
         """
         """
+        
         node = root
         level = 0
+        queue = deque((node, level))
         # start off with root
-        queue = [(node, level)]
+        
         while queue:
-            node, p_level = queue.pop(0)
+            node, p_level = queue.popleft()
             if node.left:
                 queue.append((node.left, p_level+1))
             if node.right:
@@ -44,29 +47,3 @@ class Solution:
             else:
                 node.next = None
         return root
-
-    def connect_no_extra_space(self, root):
-        """
-            Connects the tree nodes with right side of the node, if exists
-            using no extra memory
-            credit https://leetcode.com/problems/populating-next-right-pointers-in-each-node/discuss/37461/Java-solution-with-O(1)-memory%2B-O(n)-time
-        """
-        # curr level
-        level = root
-
-        while level is not None:
-            # curr node
-            node = level
-            
-            while node is not None:
-                # if left node and right exists
-                if node.left:
-                    node.left.next = node.right
-                # if only left node
-                if node.right is not None and node.next is not None:
-                    node.right.next = node.next.left
-
-            node = node.next
-        
-        # step down one level
-        level = level.left
