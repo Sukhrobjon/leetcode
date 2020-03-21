@@ -8,12 +8,20 @@
 
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> TreeNode:
+        """
+            Construct a Binary search tree from pre order traversal
+        """
         if not preorder:
             return None
         return self.build_from_preorder(preorder)
 
     def build_from_preorder(self, preorder, left=None, right=None):
-
+        """
+            Build Binary Search Tree from pre-order traversal array
+            Runtime: O(n^2), because using loop which takes O(n) time in
+            recursive call, and whole recursive call is O(n), so overall
+            O(n^2)
+        """
         if left is None and right is None:
             left = 0
             right = len(preorder)-1
