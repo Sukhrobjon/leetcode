@@ -1,5 +1,6 @@
 class Solution:
     def exist(self, board, word):
+        
         visited = [[False for j in range(
             len(board[0]))] for i in range(len(board))]
         for row in range(len(board)):
