@@ -5,6 +5,8 @@
 #         self.left = None
 #         self.right = None
 
+from collections import deque
+
 
 class Solution(object):
     def levelOrder(self, root):
@@ -14,36 +16,58 @@ class Solution(object):
         """
         if root is None:
             return []
+        levels = self.level_order_v2(root)
 
-        # counter for level
+        return levels
+
+    def level_order_v2(self, root):
+        """
+            We perform bfs to traverse the tree, and calculate
+            each levels sum
+        """
+        queue = deque([root])
+        levels = []
+        curr_level = []
+        while len(queue) != 0:
+            # for each level
+            curr_level = []
+            for i in range(len(queue)):
+                # pop the value
+
+                node = queue.popleft()
+                curr_level.append(node.val)
+                # the we add the children
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+
+            levels.append(curr_level)
+        return levels
+
+    def level_order_traversal_v1(self, root):
         level = 0
         queue = []
-        # store the all the nodes grouped by the levels
         visit = []
-        # put the root of the tree into queue with its level which is 0
         queue.append((root, level))
         while len(queue) != 0:
-            # pop the node with its corresponding level
             node_level = queue.pop(0)
             # unpack the tuple value to node and level
             node, level = node_level
             # check if current node's level is added
+            # if the new level has not been added
             if len(visit) < level + 1:
-                # simple append this node value as a new level
                 visit.append([node.val])
-            # if some of the current level nodes has been added, then we need
-            # to add this node at its level position
+            # if current level nodes has been added, then we need to add this node
+            # at the specific location
             elif len(visit) == level + 1:
                 visit[level].append(node.val)
-        
+
             if node.left is not None:
-                # we need to get the level of the parent node
-                # and add 1 to it left child
+                # we need to get the level of the parent node and add 1
                 level_left_child = level + 1
                 queue.append((node.left, level_left_child))
             if node.right is not None:
-                # we need to get the level of the parent node
-                # and add 1 to it right child
                 level_right_child = level + 1
                 queue.append((node.right, level_right_child))
 
