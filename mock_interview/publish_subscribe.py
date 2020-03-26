@@ -1,16 +1,19 @@
 """
-    Question: Write a class contains three functions that will register 
-    the callback with its id, unregister specific callback from a signal id, 
-    and runs all the callback associated with specific signal id. 
+    Question: Write a class contains three functions that will
+    register the callback with its id, unregister specific callback from
+    a signal id,and runs all the callback associated with specific signal id
    
-    Hint: Think about how to store(using data structure) the signal id and callback
+    Hint: Think about how to store(using data structure)
+    the signal id and callback
 """
+
 
 class SignalRegister:
     # to keep the persistence of the callbacks we declare
     # global dictionary for signal id and set of callbacks
     # { signal_id: {callback1}}
     registered_callbacks = {}
+
     def register(self, signal_id, callback):
         """
             Takes two arguments signal id and callback. Registers the signal id
@@ -22,10 +25,9 @@ class SignalRegister:
             callback = set([callback])
             # if not then initialize a set with a single callback
             self.registered_callbacks[signal_id] = callback
-        else: # if signal id already registered 
+        else:  # if signal id already registered
             # simply add new callback to its set of values
             self.registered_callbacks[signal_id].add(callback)
-
 
     def unregister(self, signal_id, callback):
         """
