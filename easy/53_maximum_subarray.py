@@ -15,8 +15,9 @@ class Solution(object):
 
         for i in range(1, len(nums)):
             # compare the current element to previous subarray sum
+            # print(nums[i] + curr_sum, nums[i])
             curr_sum = max(nums[i], nums[i] + curr_sum)
-
+            # print(curr_sum)
             # check if current sum less or greater than max_sum
             if max_sum < curr_sum:
                 max_sum = curr_sum
@@ -26,6 +27,6 @@ class Solution(object):
 
 obj = Solution()
 nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
-nums = [-2, -3, -5, -1]
+# nums = [-2, -3, -5, -1]
 result = obj.max_sub_array(nums)
 print(f"result: {result}")
