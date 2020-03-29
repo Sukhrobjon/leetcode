@@ -27,7 +27,11 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
+        if len(nums) <= 1:
+            return -1
+        # put start them at the same place
         slow, fast = nums[0], nums[0]
+        # now slow is head, and fast is head.next
         slow = nums[slow]
         fast = nums[nums[fast]]
 
@@ -45,7 +49,7 @@ class Solution(object):
         return slow
 
 
-numbers = [1, 3, 4, 2, 2]
+numbers = []
 obj = Solution()
 duplicate = obj.findDuplicate(numbers)
 print(duplicate)
