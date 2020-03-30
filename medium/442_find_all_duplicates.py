@@ -27,11 +27,14 @@ class Solution(object):
         
         for i in range(len(nums)):
             index = abs(nums[i]) - 1
-
+            # if we have marked the item at this index as negative
+            # that means we have seen the number at i's index, that's nums[i]
             if nums[index] < 0:
                 dups.append(abs(nums[i]))
                 print(nums[i])
             else:
+                # else we mark this value at this index negative, so
+                # next time when we check this number will be negative
                 nums[index] = -nums[index]
         print(nums)
         for i in range(len(nums)):
