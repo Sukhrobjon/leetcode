@@ -31,7 +31,7 @@ class Solution(object):
         # if it is possible to reach it from index - 1
         last_good_index = len(nums)-1
 
-        # iterate the array backwards 
+        # iterate the array backwards
         for i in range(len(nums)-1, -1, -1):
             # if we can get from the current index to last good index
             if (i + nums[i]) >= last_good_index:
