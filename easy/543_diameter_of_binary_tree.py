@@ -26,7 +26,7 @@ class Solution(object):
 
         curr_height = max(left_h, right_h) + 1
         # diameter could pass through root, which is left_height + right
-        # height, or max of left diagram and right diagram
+        # height, or max of left diameter and right diameter
         ans = max(left_h + right_h, left_d, right_d)
         return ans, curr_height
 
@@ -45,9 +45,13 @@ class Solution(object):
         if root is None:
             return 0
         
+        # get the both heights from both side of the tree
         left_height = self.find_height_with_diameter_v2(root.left, diameter)
         right_height = self.find_height_with_diameter_v2(root.right, diameter)
-
+        
+        # update the diameter, if diameter(longest path) passes through
+        # root, then it is l_height + r_height, if not it is diameter
         diameter[0] = max(diameter[0], left_height + right_height)
-
+        
+        # return the current height
         return max(left_height, right_height) + 1
