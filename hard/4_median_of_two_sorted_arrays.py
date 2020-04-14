@@ -14,8 +14,7 @@ class Solution(object):
         i, j = 0, 0
         nums = []
         count = 0
-        while (count <= middle + 1) and (i < len(nums1) and j < len(nums2)):
-            
+        while (count <= middle+1):
             if nums1[i] <= nums2[j]:
                 nums.append(nums1[i])
                 i += 1
@@ -24,15 +23,22 @@ class Solution(object):
                 j += 1
 
             count += 1
+
+            print(nums)
+            if (i == len(nums1) or j == len(nums2)):
+                break
         print(nums)
         return nums[-1]
 
+     
+
 
 if __name__ == "__main__":
-    nums1 = [1, 2]
-    nums2 = [3, 4]
+    nums1 = []
+    nums2 = [3]
 
     obj = Solution()
-
-    median = obj.findMedianSortedArrays(nums1, nums2)
-    print(f'median {median}')
+    merged = obj.merge(nums1, nums2)
+    # median = obj.findMedianSortedArrays(nums1, nums2)
+    # print(f'median {median}')
+    print(merged)

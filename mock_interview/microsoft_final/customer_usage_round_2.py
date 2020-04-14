@@ -1,8 +1,3 @@
-
-
-
-
-
 # for each customer id
 # for each day i need to find a customer used the product_1 has the most usage for that day\
 # customer_1 for product_1 has 40 min for day

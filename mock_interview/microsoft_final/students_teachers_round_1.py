@@ -1,4 +1,5 @@
-# Teachers and students are identified by an integer that represents their proficiency level.
+# Teachers and students are identified by an integer that represents their
+# proficiency level.
 # Write a method to assign each student to the teacher of the closest level.
 
 # students
@@ -47,7 +48,7 @@ def teacher_and_student(students, teachers):
 # t = [1, 2, 5, 7, 87, 14, 56]
 #t = [1, 2, 5, 7, 14, 56, 87]
 
-
+"""
 def teacher_and_student_v1(students, teachers):
 
     students.sort()
@@ -64,11 +65,11 @@ def teacher_and_student_v1(students, teachers):
     while stud_i < len(students) and teach_i < len(teachers):
         diff = abs(students[stud_i] - teachers[teach_i])
         diff_next = abs([teachi_+1])
-        if(diff < diff_next)
-        teacher[tu].append
-        s_i = +1
-        else
-        t_1+1
+        if(diff < diff_next):
+            teacher[tu].append
+            s_i = +1
+        else:
+            t_1+1
         while:
             curr_d = abs(students[stud_i] - teachers[teach_i])
 
@@ -84,6 +85,20 @@ def teacher_and_student_v1(students, teachers):
         stud_i += 1
 
     return teacher_stud
+"""
+
+
+def assign_student_to_teachers(students, teachers):
+
+    students.sort()
+    teachers.sort()
+
+    teacher_stud = {}
+
+    # storing teachers
+    for teacher in teachers:
+        teacher_stud[teacher] = []
+
 
 
 # students
@@ -92,5 +107,5 @@ s = [1, 5, 8, 14, 56, 12, 0, 98, 3]
 # teachers
 t = [1, 2, 5, 7, 87, 14, 56]
 
-result = teacher_and_student_v1(s, t)
+result = teacher_and_student(s, t)
 print(result)
