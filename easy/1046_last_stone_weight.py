@@ -50,6 +50,7 @@ class Solution(object):
                 return q.get()[1]
             
             elif q.qsize() > 1:
+                # pop the two stone
                 stone1 = q.get()[1]
                 stone2 = q.get()[1]
 
