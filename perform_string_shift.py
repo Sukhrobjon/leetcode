@@ -1,4 +1,24 @@
 class Solution(object):
+
+    def string_shift_optimized(self, s, shift):
+        """
+            Optimizing the number of shifting by canceling
+            left and right shifts and perform the rotation once
+        """
+        rotation = 0
+        for direction, move in shift:
+            # print(direction, move)
+            if direction == 0:
+                rotation = rotation + move
+            else:
+                rotation -= move
+        # print(move)
+        # to take care of negative val
+        rotation = rotation % len(s)
+        print(rotation)
+        # we can just do the left rotation
+        return s[rotation:] + s[:rotation]
+
     def stringShift(self, s, shift):
         """
         :type s: str
@@ -46,5 +66,5 @@ class Solution(object):
 word = "abcdefg"
 shift = [[1, 1], [1, 1], [0, 2], [1, 3]]
 obj = Solution()
-result = obj.stringShift(word, shift)
-print(result)
+result = obj.string_shift_optimized(word, shift)
+print(result)  # efgabcd
