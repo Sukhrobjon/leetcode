@@ -9,7 +9,7 @@ class Solution(object):
         for direction, move in shift:
             # print(direction, move)
             if direction == 0:
-                rotation = rotation + move
+                rotation += move
             else:
                 rotation -= move
         # print(move)
