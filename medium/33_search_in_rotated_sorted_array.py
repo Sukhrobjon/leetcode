@@ -58,6 +58,14 @@ class Solution(object):
 
         return pivot_index
 
+    def search_v1(self, nums, target):
+        """
+            Solution based on the leetcode solution
+        """
+        pass
+
+
+
 nums_r = [4, 5, 6, 7, 0, 1, 2]
 nums = [0, 1, 2, 4, 5, 6, 7]
 single = [5]
