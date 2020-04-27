@@ -19,7 +19,6 @@ class Solution(object):
             if cumulative_sum not in sum_dict:
                 sum_dict[cumulative_sum] = 1
             else:
-                sum_dict[cumulative_sum] = 1
+                sum_dict[cumulative_sum] += 1
 
         return count
-        
