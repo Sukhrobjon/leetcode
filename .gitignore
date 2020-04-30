@@ -166,4 +166,7 @@ dmypy.json
 # Ignore all local history of files
 .history
 
+# Custom
+*.png
+*.jpeg
 # End of https://www.gitignore.io/api/macos,python,visualstudiocode
